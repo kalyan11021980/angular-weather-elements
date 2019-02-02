@@ -1,0 +1,42 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "weather-api",
+      "urls": [
+        "https://api.openweathermap.org/data/2.5/weather?q=",
+        "http://api.geonames.org/timezoneJSON?formatted=true&"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge" : "1d",
+        "maxSize" : 100
+      }
+    }
+  ]
+
+
+}

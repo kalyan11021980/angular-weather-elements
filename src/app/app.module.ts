@@ -4,6 +4,8 @@ import { NgModule, Injector } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather/weather.component';
 import { createCustomElement} from '@angular/elements';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { createCustomElement} from '@angular/elements';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   entryComponents: [WeatherComponent]

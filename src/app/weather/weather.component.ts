@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, ViewEncapsulation, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, ViewEncapsulation, SimpleChanges, OnInit } from '@angular/core';
 import {WeatherService } from './weather.service';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-weather',
@@ -7,9 +8,9 @@ import {WeatherService } from './weather.service';
   styleUrls: ['./weather.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class WeatherComponent implements OnChanges {
+export class WeatherComponent implements OnChanges, OnInit {
   @Input('location') location:string;
-  @Input('unit') unit:string;
+  @Input('unit') unit:string; 
   public errText: string = '';
   public weathersubscription;
   public temp:number;
@@ -19,8 +20,24 @@ export class WeatherComponent implements OnChanges {
   public city: string;
   public dt: Date;
   constructor(
-    public _ws: WeatherService
+    public _ws: WeatherService,
+    private swUpdate: SwUpdate 
   ) { }
+
+  ngOnInit(){
+    this.reloadCache();
+  }
+
+  reloadCache(){
+    if(this.swUpdate.isEnabled){
+      this.swUpdate.available.subscribe(() =>{
+        if(confirm('New version available! would you like to update?')){
+          window.location.reload();
+        }
+      })
+    }
+  }
+
 
   renderWeather() {
     this.weathersubscription = this._ws.getWeather(this.location, this.unit).subscribe((data) => {

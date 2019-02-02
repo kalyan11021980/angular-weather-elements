@@ -101,3 +101,27 @@ p{
     font-size: 10px;
   }
 }
+
+.connectionStatus {
+  font-family: Poiret One;
+  padding:30px;
+  position: absolute;
+  bottom: 50px;
+  width:100%;
+  color:#fff;
+  text-align: center;
+}
+
+.active {
+  background: green;
+}
+.inactive {
+  background: red;
+}
+h2 {
+  font-family: Poiret One;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color:#fff;
+}

@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "weathercardbuild": "ng build --prod --output-hashing=none && node ./mergelib.js"
+    "weathercardbuild": "ng build --prod --output-hashing=none && node ./mergelib.js",
+    "weatherprod": "npm run weathercardbuild && cd dist/weathercard && http-server -c-1"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +21,9 @@
     "@angular/forms": "~7.1.0",
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
+    "@angular/pwa": "^0.13.0",
     "@angular/router": "~7.1.0",
+    "@angular/service-worker": "~7.1.0",
     "concat": "^1.0.3",
     "core-js": "^2.5.4",
     "document-register-element": "^1.13.1",
