@@ -31,7 +31,8 @@
         "http://api.geonames.org/timezoneJSON?formatted=true&"
       ],
       "cacheConfig": {
-        "strategy": "performance",
+        "strategy": "freshness",
+        "timeout": "10s",
         "maxAge" : "1d",
         "maxSize" : 100
       }
