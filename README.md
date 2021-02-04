@@ -1,27 +1,30 @@
 # WeatherElement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+This is upgraded to Angular 11. If you want the old version please checkout old branch
 
-## Development server
+# WeatherElement
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+npm install
 
-## Code scaffolding
+# WeatherElement
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+npm run weathercardbuild to generate files inside dist/weather-element
 
-## Build
+Edit the index.html like below and remove all unused JS files except weathercard.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WeatherElement</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+<app-weather unit="metric" location="Atlanta"></app-weather>
+<script src="./weathercard.js"></script>
+</body>
+</html>
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+use any http-server to run the index.html
