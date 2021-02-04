@@ -12,6 +12,8 @@ npm run weathercardbuild to generate files inside dist/weather-element
 
 Edit the index.html like below and remove all unused JS files except weathercard.js
 
+
+```
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,5 +28,5 @@ Edit the index.html like below and remove all unused JS files except weathercard
 <script src="./weathercard.js"></script>
 </body>
 </html>
-
+```
 use any http-server to run the index.html
